@@ -14,7 +14,7 @@ editWindow::editWindow(QWidget *parent) :
     ui(new Ui::editWindow)
 {
     ui->setupUi(this);
-    ui->quoteList->addItems(strings);
+    ui->quoteList->addItems(strings);   //Populate listbox with string quotes
 }
 
 editWindow::~editWindow()
