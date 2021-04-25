@@ -25,7 +25,7 @@ void Difficulty::on_StartGame_clicked()
         game.setModal(true);
         game.exec();
     }
-    else if (this->ui->MediumRadio->isChecked()) {
+    else if (this->ui->MediumRadio->isChecked()) {  // Radio button selections for set difficulty
         GameWindow game("Medium");
         game.setModal(true);
         game.exec();
@@ -37,6 +37,6 @@ void Difficulty::on_StartGame_clicked()
     }
 
 
-    this->hide();
+    this->hide();   //Hide menu after selection has been chosen
 
 }
