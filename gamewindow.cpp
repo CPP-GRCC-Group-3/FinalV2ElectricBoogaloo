@@ -39,10 +39,6 @@ ui(new Ui::GameWindow)
     }
     ui->setupUi(this);
 
-    //QString qstr = QString::fromStdString(gamer.getInitials());
-    //this->ui->ScoreLabel->setText(qstr);
-
-
 }
 
 
@@ -53,17 +49,13 @@ void GameWindow::on_pushButton_clicked()
     string guess;
     int wrongs;
 
-    //this->ui->LABELGuessFeedback->setText("Please enter your guess. If you would like a hint, type 'hint' ");
-
     gamer.bankStore(true,iSecret);
 
-    QGuess = this->ui->GuessInput->text();
+    QGuess = this->ui->GuessInput->text();  //Stores values in text boss to Qguess
 
-    //this->ui->WinLabel->setText(QGuess);
+    guess = QGuess.toStdString();   
 
-    guess = QGuess.toStdString();
-
-    if (guess == "hint") {
+    if (guess == "hint") {  //checks to see if text is hint, offers hint if so
         char hint = gamer.displayHint();
         QString qstr = QChar(hint);
         this->ui->CorrectLabel->setText("Hint: " + qstr);
@@ -127,7 +119,7 @@ void GameWindow::on_pushButton_clicked()
 
     this->ui->GuessInput->clear();
 
-    string number = "Score: " + to_string(gamer.getCurrentScore());
+    string number = "Score: " + to_string(gamer.getCurrentScore()); //Configures text for score to output
 
     QString score = QString::fromStdString(number);
 
@@ -143,7 +135,7 @@ void GameWindow::on_pushButton_clicked()
 
 }
 
-void GameWindow::on_ExitButton_clicked()
+void GameWindow::on_ExitButton_clicked() //Exit window
 {
     gamer.setCurrentScore(0);
 
