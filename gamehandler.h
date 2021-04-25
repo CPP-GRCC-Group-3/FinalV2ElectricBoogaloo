@@ -74,7 +74,7 @@ public:
     void writeScoreToFile(string&, int&);
     void readScoreFile();
     string getOutcome();
-    void logData(string&, int&);
+ 
 
     //Constructer used to make file into vector
     GameHandler();
