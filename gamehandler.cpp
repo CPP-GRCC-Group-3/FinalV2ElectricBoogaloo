@@ -64,7 +64,7 @@ void GameHandler::bankStore(bool typeCheck, int& n) {
     if (typeCheck) {
 
         bankStorage = wordArray[n];
-        for (int i = 0; i < bankStorage.length(); i++) {
+        for (int i = 0; i < bankStorage.length(); i++) {    //Stores word to be manipulated for letter-to-letter guessing
             guessBank.push_back(bankStorage[i]);
 
         }
@@ -259,7 +259,7 @@ void GameHandler::writeScoreToFile(string& name, int& score) {
     file.close();
 }
 
-void GameHandler::readScoreFile() {
+void GameHandler::readScoreFile() { //Called to use log score on exit
     ifstream file;
     string line;
     string name;
@@ -269,7 +269,7 @@ void GameHandler::readScoreFile() {
 
     while (getline(file, line)) {
 
-        name = line.substr(0, 3);
+        name = line.substr(0, 3);   //Cuts off name entries that go past the 3 letter initial entry
         score = stoi(line.substr(3));
 
         highScores[score] = name;
@@ -281,30 +281,6 @@ void GameHandler::readScoreFile() {
     }
 
     file.close();
-}
-
-
-void GameHandler::logData(string& init, int& menuOption) {
-
-    /*
-    ofstream logFile;
-
-    time_t now = time(0);
-
-    tm* ltm = localtime(&now);
-
-    string fileName = "LogFile.log";
-
-    logFile.open(fileName, ios::out | ios::app);
-
-    if (logFile.is_open()) {
-        logFile << "User: " << init << " " << 1 + ltm->tm_mon << "/" << ltm->tm_mday << "/" << 1900 + ltm->tm_year << " @ " << ltm->tm_hour << ":" << ltm->tm_min << " interacted with menu option  " << menuOption << "\n";
-    }
-
-
-    logFile.close();
-    */
-
 }
 
 void GameHandler::setInitials(string& init) {
